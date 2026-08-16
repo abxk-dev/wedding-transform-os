@@ -1,36 +1,85 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# TransformOS — 55-Day Wedding Transformation Dashboard
+
+Premium personal health & transformation dashboard built for a 55-day wedding preparation program.
+
+## Features
+
+- **Dashboard** — Wedding countdown, weight tracking, daily checklist, nutrition summary, streak counter
+- **55-Day Calendar** — Heatmap visualization of daily completion, drill-down per day
+- **Diet Tracker** — Vegetarian/egg-free food database, meal logger, macro tracking
+- **Workout Tracker** — 5-day gym split, progressive overload, set/rep/weight logging
+- **Skin Care** — AM/PM routines, pigmentation care tips
+- **Reproductive Health** — Evidence-based lifestyle habits, semen analysis explainer
+- **Progress** — Weight charts, body measurements, progress photos, milestone badges
+- **Settings** — Notification reminders, daily targets, theme toggle, data export/reset
+
+## Tech Stack
+
+- Next.js 15+ App Router + TypeScript
+- Tailwind CSS + shadcn/ui
+- Recharts for data visualization
+- Lucide icons
+- localStorage persistence (no backend)
+- PWA with service worker
+- Web Notifications API for reminders
 
 ## Getting Started
 
-First, run the development server:
-
 ```bash
+# Install dependencies
+npm install
+
+# Run development server
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+
+# Build for production
+npm run build
+
+# Start production server
+npm start
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Deployment
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### Vercel
 
-## Learn More
+1. Push to GitHub
+2. Import in Vercel
+3. Deploy — zero config needed
 
-To learn more about Next.js, take a look at the following resources:
+### Other Platforms
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```bash
+npm run build
+npm start
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Data Storage
 
-## Deploy on Vercel
+All data persists in browser localStorage. No backend required.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+**Keys used:**
+- `transform_daily_YYYY-MM-DD` — Daily checklist, meals, workout, skincare
+- `transform_weight_log` — Weight entries
+- `transform_measurements` — Body measurements (waist/chest/arms)
+- `transform_photos` — Progress photos (base64)
+- `transform_settings` — Notification prefs, targets
+- `transform_streak` — Streak data
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Export full backup from Settings > Export JSON.
+
+## PWA
+
+Installable on mobile and desktop. Service worker enables offline access.
+
+## Safety
+
+- No medical advice — lifestyle suggestions only
+- No guaranteed outcomes for weight, skin, or fertility
+- Always consult healthcare professionals for medical concerns
+
+## License
+
+Personal use.

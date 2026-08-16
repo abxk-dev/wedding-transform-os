@@ -1,0 +1,16 @@
+name: transform-os
+region: blr
+services:
+  - name: web
+    github:
+      repo: YOUR_USERNAME/wedding-transform-os
+      branch: main
+    run_command: npm start
+    build_command: npm run build
+    environment_slug: node-js
+    instance_count: 1
+    instance_size_slug: basic-xxs
+    http_port: 3000
+    envs:
+      - key: NODE_ENV
+        value: production
