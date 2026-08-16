@@ -212,7 +212,8 @@ export function getDayCompletion(data: DailyData): number {
 
 // Clear any data that was incorrectly seeded for future dates
 export function clearFutureData(): void {
-  const today = new Date().toISOString().split('T')[0];
+  const now = new Date();
+  const today = `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, '0')}-${String(now.getDate()).padStart(2, '0')}`;
   const keysToRemove: string[] = [];
 
   for (let i = 0; i < localStorage.length; i++) {
@@ -255,7 +256,7 @@ export function initializeSampleData(): void {
   for (let i = 0; i < seedDays; i++) {
     const date = new Date(startDate);
     date.setDate(date.getDate() + i);
-    const dateStr = date.toISOString().split('T')[0];
+    const dateStr = `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, '0')}-${String(date.getDate()).padStart(2, '0')}`;
 
     const dailyData: DailyData = {
       date: dateStr,
@@ -296,8 +297,9 @@ export function initializeSampleData(): void {
     for (let i = 0; i < seedDays; i++) {
       const date = new Date(startDate);
       date.setDate(date.getDate() + i);
+      const dateStr = `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, '0')}-${String(date.getDate()).padStart(2, '0')}`;
       weightLog.push({
-        date: date.toISOString().split('T')[0],
+        date: dateStr,
         weight: 89 - (i * 0.15),
       });
     }
